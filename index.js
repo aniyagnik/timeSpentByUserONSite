@@ -8,7 +8,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/blog',(req,res)=>{
-    res.sendFile(path.join(__dirname,"/puclic/blog.html"))
+    res.sendFile(path.join(__dirname,"/public/blog.html"))
 })
 
 
