@@ -11,11 +11,17 @@ function getTimeSpentOnSite(){
 function startCounting(){
     timerStart = Date.now();
     timer = setInterval(function(){
+        if(timeSpentOnSite>10000)
+        {
+            console.log('sending request for access denied')
+            location.href="/accessDenied"
+            return }
         timeSpentOnSite = getTimeSpentOnSite()+(Date.now()-timerStart);
         localStorage.setItem('timeSpentOnSite',timeSpentOnSite);
         timerStart = parseInt(Date.now());
         // Convert to seconds
         document.getElementById('timeSpent').innerText= (parseInt(timeSpentOnSite/1000));
+        
     },1000);
 }
 startCounting();
